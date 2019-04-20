@@ -25,7 +25,7 @@ func main() {
 		return
 	}
 
-	http.HandleFunc("/", getId)
+	http.HandleFunc("/id", getId)
 	errInfo := http.ListenAndServe(*addrStr, nil)
 	if errInfo != nil {
 		log.Fatal("ListenAndServe: ", errInfo)
@@ -34,11 +34,9 @@ func main() {
 
 func getId(rw http.ResponseWriter, req *http.Request) {
 	// node.Generate()
-	fmt.Fprint(rw, node.Generate())
+	// Generate a snowflake ID.
+	id := node.Generate()
 	/*
-		// Generate a snowflake ID.
-		id := node.Generate()
-
 		// Print out the ID in a few different ways.
 		fmt.Printf("Int64  ID: %d\n", id)
 		fmt.Printf("String ID: %s\n", id)
@@ -55,6 +53,9 @@ func getId(rw http.ResponseWriter, req *http.Request) {
 		fmt.Printf("ID Step  : %d\n", id.Step())
 
 		// Generate and print, all in one.
-		fmt.Printf("ID       : %d\n", node.Generate().Int64())
+		fmt.Printf("ID       : %d\n", id.Int64())
+
+		fmt.Println("**************************************************")
 	*/
+	fmt.Fprint(rw, id)
 }
