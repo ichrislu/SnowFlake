@@ -9,6 +9,9 @@ import (
 	"github.com/ichrislu/snowflake/core"
 )
 
+// 另有Sony的算法
+// http://github.com/sony/sonyflake
+
 var node *snowflake.Node
 
 func main() {
