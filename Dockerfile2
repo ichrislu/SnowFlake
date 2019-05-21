@@ -1,0 +1,9 @@
+FROM scratch
+
+MAINTAINER Chris <chrislu.name@gmail.com>
+
+COPY snowflake /snowflake
+# RUN chmod +x /snowflake
+
+ENTRYPOINT ["/snowflake"]
+
